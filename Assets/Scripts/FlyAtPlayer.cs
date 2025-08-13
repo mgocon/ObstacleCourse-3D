@@ -2,38 +2,44 @@ using UnityEngine;
 
 public class FlyAtPlayer : MonoBehaviour
 {
+    [SerializeField] Transform target; // assign Player here or via tag fallback
     [SerializeField] float speed = 5f;
-    [SerializeField] float destroyDistance = 0.5f; // Increased threshold
-    Transform player;
+    [SerializeField] float reachDistance = 0.1f;
+    [SerializeField] bool destroyOnReach = true;
 
-    void Awake()
-    {
-        gameObject.SetActive(false);
-    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Find the player by tag
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
+        if (target == null)
         {
-            player = playerObj.transform;
+            var player = GameObject.FindGameObjectWithTag("Player");
+            if (player) target = player.transform;
         }
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if (player != null)
+        if (target == null) return;
+
+        // Move towards the player's position
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            target.position,
+            speed * Time.deltaTime
+        );
+
+        // Optionally destroy when it reaches the player
+        if (destroyOnReach && Vector3.Distance(transform.position, target.position) <= reachDistance)
         {
-            MoveToPlayer();
+            Destroy(gameObject);
         }
     }
 
-    void MoveToPlayer()
+    // Destroy on non-trigger collision with the Player
+    void OnCollisionEnter(Collision collision)
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-
-        // Optional: Destroy when reaching the player
-        if (Vector3.Distance(transform.position, player.position) < destroyDistance)
+        if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
