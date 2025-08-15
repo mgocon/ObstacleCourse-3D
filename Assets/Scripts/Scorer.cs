@@ -6,7 +6,7 @@ public class Scorer : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.name + " (Tag: " + collision.gameObject.tag + ")");
+        Debug.Log("Ouch you've hit me!");
         
         if (collision.gameObject.CompareTag("Obstacle"))
         {
