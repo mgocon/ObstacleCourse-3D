@@ -17,6 +17,6 @@ public class ObjectHit : MonoBehaviour
         yield return new WaitForEndOfFrame();
         GetComponent<Renderer>().material.color = Color.red;
         gameObject.tag = "Hit";
-        Debug.Log("Object hit and changed to red!");
+        Debug.Log("You've hit me! I turned RED!!!");
     }
 }
