@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "Gocon_3DFirstProject.sln"
+    "dotnet.defaultSolution": "ObstacleCourse-3D.sln"
 }
