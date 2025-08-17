@@ -7,6 +7,10 @@ public class FlyAtPlayer : MonoBehaviour
     [SerializeField] float reachDistance = 0.1f;
     [SerializeField] bool destroyOnReach = true;
 
+    void Awake()
+    {
+        gameObject.SetActive(false); //?Game object is always set to false on start
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

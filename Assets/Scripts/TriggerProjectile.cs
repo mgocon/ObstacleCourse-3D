@@ -13,17 +13,18 @@ public class TriggerProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
+            Debug.Log("Player entered trigger, activating projectiles.");
             //*Uncomment projectiles if you want to add more
             projectile1.SetActive(true);
             projectile2.SetActive(true);
             projectile3.SetActive(true);
-            // projectile4.SetActive(true);
-            // projectile5.SetActive(true);
-            // projectile6.SetActive(true);
-            // projectile7.SetActive(true);
-            // projectile8.SetActive(true);
+            projectile4.SetActive(true);
+            projectile5.SetActive(true);
+            projectile6.SetActive(true);
+            projectile7.SetActive(true);
+            projectile8.SetActive(true);
         }
-    }   
+    }
 }

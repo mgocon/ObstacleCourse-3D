@@ -6,6 +6,10 @@ public class Dropper : MonoBehaviour
 
     Renderer rend;
     Rigidbody rb;
+    void Awake()
+    {
+        gameObject.SetActive(false); //?Game object is always set to false on start
+    }
 
     void Start()
     {
