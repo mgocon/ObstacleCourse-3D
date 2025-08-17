@@ -1224,8 +1224,8 @@ MonoBehaviour:
   projectile4: {fileID: 666636576}
   projectile5: {fileID: 67430134}
   projectile6: {fileID: 5189726}
-  projectile7: {fileID: 0}
-  projectile8: {fileID: 0}
+  projectile7: {fileID: 1928200293}
+  projectile8: {fileID: 1451142314}
 --- !u!1 &269170591
 GameObject:
   m_ObjectHideFlags: 0
